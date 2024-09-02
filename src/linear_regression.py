@@ -44,6 +44,17 @@ class LinearRegression:
         X_b = np.c_[np.ones((X.shape[0], 1)), X]
         return X_b.dot(self.theta)
 
+    def get_equation(self):
+
+        """Devuelve la ecuación del modelo en formato legible utilizando los valores de theta."""
+
+        """La función item() de NumPy extrae un solo valor de un arreglo. Esto es necesario porque self.theta[i] puede ser un arreglo de un solo elemento, en cuyo caso 
+        necesitamos convertirlo a un número escalar para usarlo en una cadena de formato."""
+        equation = f"y = {self.theta[0].item():.2f}"
+        for i in range(1, len(self.theta)):
+            equation += f" + {self.theta[i].item():.2f} * x_{i}"
+        return equation
+
     def mean_squared_error(self, y_true, y_pred):
         
         """Calcula el error cuadrático medio (MSE)."""
@@ -71,3 +82,4 @@ class LinearRegression:
         - Retorna el valor del error cuadrático medio (RMSE).
         """
         return np.sqrt(self.mean_squared_error(y_true, y_pred))
+    
