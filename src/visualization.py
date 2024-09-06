@@ -20,7 +20,7 @@ def plot_data(X, y):
     plt.legend()
     plt.show()
 
-def plot_regression_line(X, y, y_pred):
+def plot_regression_line(X, y, y_pred, method_name):
     
     """Grafica la línea de regresión ajustada junto con los datos originales."""
     
@@ -36,7 +36,7 @@ def plot_regression_line(X, y, y_pred):
 
     plt.scatter(X, y, color='blue', label='Datos Reales')  # Puntos reales
     plt.plot(X, y_pred, color='red', label='Línea de Regresión')  # Línea ajustada
-    plt.title('Regresión Lineal Ajustada')
+    plt.title(f'Regresión Lineal Ajustada - {method_name}')
     plt.xlabel('X')
     plt.ylabel('y')
     plt.legend()
