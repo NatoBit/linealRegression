@@ -17,3 +17,12 @@ train_and_evaluate_model(model_normal, X, y, 'normal_equation', 'Normal Equation
 
 model_svd = LinearRegression()
 train_and_evaluate_model(model_svd, X, y, 'svd_pseudoinverse', 'SVD Pseudoinverse')
+
+model_gd_batch = LinearRegression()
+train_and_evaluate_model(model_gd_batch, X, y, 'gd_batch', 'GD Batch')
+
+model_gd_stochastic = LinearRegression()
+train_and_evaluate_model(model_gd_stochastic, X, y, 'gd_stochastic', 'GD Stochastic')
+
+model_gd_mini_batch = LinearRegression()
+train_and_evaluate_model(model_gd_mini_batch, X, y, 'gd_mini_batch', 'GD Mini-Batch')

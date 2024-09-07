@@ -1,6 +1,6 @@
 from src.visualization import plot_regression_line
 
-def train_and_evaluate_model(model, X, y, fit_method, method_name):
+def train_and_evaluate_model(model, X, y, fit_method, method_name, batch_size=16):
     
     """Función para entrenar un modelo y evaluar su rendimiento."""
     
@@ -23,6 +23,12 @@ def train_and_evaluate_model(model, X, y, fit_method, method_name):
         model.fit_normal_equation(X, y)
     elif fit_method == 'svd_pseudoinverse':
         model.fit_svd_pseudoinverse(X, y)
+    elif fit_method == 'gd_batch':
+        model.fit_batch_gradient_descent(X, y)
+    elif fit_method == 'gd_stochastic':
+        model.fit_stochastic_gradient_descent(X, y)
+    elif fit_method == 'gd_mini_batch':
+        model.fit_mini_batch_gradient_descent(X, y, batch_size)
     
     # Hacemos las predicciones
     y_pred = model.predict(X)
